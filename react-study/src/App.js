@@ -6,6 +6,11 @@ import User from './pages/User';
 import ClassTest from './pages/ClassTest';
 import stateTest from './pages/stateTest';
 import UseState from './pages/UseState';
+import EventTest from './pages/EventTest';
+import EventFucTest from './pages/EventFucTest';
+import ValidationSample from './pages/ValidationSample'
+import RefTest from './pages/RefTest';
+
 class App extends Component {
   render() {
     return (
@@ -31,6 +36,18 @@ class App extends Component {
               <li>
                 <Link to="/useState">useState</Link>
               </li>
+              <li>
+                <Link to="/eventTest">eventTest</Link>
+              </li>
+              <li>
+                <Link to="/eventFucTest">evenFucTest</Link>
+              </li>
+              <li>
+                <Link to="/ref">ref</Link>
+              </li>
+              <li>
+                <Link to="/refTest">refTest</Link>
+              </li>
             </ul>
           </nav>
 
@@ -40,6 +57,10 @@ class App extends Component {
           <Route path='/stateTest' component={stateTest} />
           <Route path='/useState' component={UseState} />
           <Route path='/classTest' component={ClassTest} />
+          <Route path='/eventTest' component={EventTest} />
+          <Route path='/eventFucTest' component={EventFucTest} />
+          <Route path='/ref' component={ValidationSample} />
+          <Route path='/refTest' component={RefTest} />
         </div>
       </Router>
     );
