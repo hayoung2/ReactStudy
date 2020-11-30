@@ -10,9 +10,25 @@ import EventTest from './pages/EventTest';
 import EventFucTest from './pages/EventFucTest';
 import ValidationSample from './pages/ValidationSample'
 import RefTest from './pages/RefTest';
+import Life from './pages/LifeCycleSample';
+
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
 
 class App extends Component {
+  state = {
+    color: '#000000'
+  }
+
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor()
+    });
+  }
   render() {
+    const names = ['/about', 'user']
+    const nameList = names.map(name => <li><Link to={name}>{name}</Link></li>)
     return (
       <Router>
         <div>
@@ -21,12 +37,7 @@ class App extends Component {
               <li>
                 <Link to="/">Home</Link>
               </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/user">User</Link>
-              </li>
+              {nameList}
               <li>
                 <Link to="/classTest">ClassTest</Link>
               </li>
@@ -48,6 +59,7 @@ class App extends Component {
               <li>
                 <Link to="/refTest">refTest</Link>
               </li>
+
             </ul>
           </nav>
 
@@ -61,6 +73,10 @@ class App extends Component {
           <Route path='/eventFucTest' component={EventFucTest} />
           <Route path='/ref' component={ValidationSample} />
           <Route path='/refTest' component={RefTest} />
+          <div>
+            <button onClick={this.handleClick}>랜던 색상</button>
+            <Life color={this.state.color} />
+          </div>
         </div>
       </Router>
     );
