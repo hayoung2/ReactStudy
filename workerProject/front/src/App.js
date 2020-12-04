@@ -3,6 +3,7 @@ import './App.css';
 import Start from './components/Start';
 import Main from './components/Main';
 import { Route } from 'react-router-dom';
+import Community from './components/Community';
 
 function App() {
   return (
