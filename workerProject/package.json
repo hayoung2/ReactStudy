@@ -7,7 +7,10 @@
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn front\""
     },
     "dependencies": {
+        "axios": "^0.21.0",
         "body-parser": "^1.18.3",
+        "cheerio": "^1.0.0-rc.3",
+        "cors": "^2.8.5",
         "express": "^4.16.4",
         "mysql": "^2.18.1"
     },
