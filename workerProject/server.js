@@ -5,6 +5,9 @@ const cheerio = require("cheerio");
 const axios = require("axios");
 const app = express();
 const port = process.env.PORT || 5000;
+const multer = require('multer');
+const upload = multer({ dest: './upload' });
+
 
 app.use(bodyParser.json()); //이 데이터 형식으로 주고받음. 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,6 +45,14 @@ const getDataHtml = async () => {
   }
 };
 
+const getDustHtml = async () => {
+  try {
+    return await axios.get("http://m.airkorea.or.kr/main;jsessionid=HqtWym351wtcfGYyFVp32hmPsRE7vuxge7RJa1wkWbHODpd1VKX4yIVu8AH41jLL.airwas4_servlet_Mobile43");
+    // 해당 사이트 html 태그 가져오기
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const getHtml = async () => {
   try {
@@ -52,25 +63,39 @@ const getHtml = async () => {
   }
 };
 
-app.get("/crawling/data", (req, res) => {
+app.get("/crawling/dust", (req, res) => {
+  getDustHtml()
+    .then((html) => {
+      const $ = cheerio.load(html.data);
+      let subParentTag = $("div.stage div a");
+      // 크롤링할 태그 찾기
+      let resultArr = [];
+      subParentTag.each(function (i, elem) {
+        let itemObj = {
+          dust: $(this).find("span.tx").text(),
+        };
+        resultArr.push(itemObj);
+      });
+
+      // resultArr.forEach((elem) => {
+      //   console.log(`현재 ${elem._text}의 현황 : ${elem._num}`);
+      // });
+      return resultArr[1];
+    })
+    .then((data) => res.send(data));
+});
+
+app.get("/crawling/weather", (req, res) => {
   getDataHtml()
     .then((html) => {
       const $ = cheerio.load(html.data);
       let mainParentTag = $("div.info_data p");
-      let subParentTag = $("div.indicator dd");
       // 크롤링할 태그 찾기
 
       let resultArr = [];
       mainParentTag.each(function (i, elem) {
         let itemObj = {
           temperature: $(this).find("span.todaytemp").text(),
-        };
-        resultArr.push(itemObj);
-      });
-
-      subParentTag.each(function (i, elem) {
-        let itemObj = {
-          dust: $(this).find("span").text(),
         };
         resultArr.push(itemObj);
       });
@@ -107,8 +132,20 @@ app.get("/crawling/corona", (req, res) => {
     .then((data) => res.send(data));
 });
 
-
 app.use('/image', express.static('./upload'));
+
+app.post('/api/userPosting', upload.single('image'), (req, res) => {
+  let sql = 'INSERT INTO post VALUES (null,?,?,?,?,?)';
+  let name = req.body.name;
+  let title = req.body.title;
+  let image = '/image/' + req.file.filename;
+  let content = req.body.content;
+  let date = req.body.date;
+  let param = [name, title, image, content, date];
+  connection.query(sql, param, (err, rows, fields) => {
+    res.send(rows);
+  })
+});
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
