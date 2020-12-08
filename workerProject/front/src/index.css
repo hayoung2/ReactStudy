@@ -4,11 +4,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
 
 
 body {
   margin: 0;
-  background-color: slategray;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,4 +19,127 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.header-logo {
+  width:35px;
+  float: right;
+  margin-right: 1vw;
+  margin-top: 0.5vw;
+  height: 35px;
+ 
+}
+.test {
+  background-color: darkcyan;
+}
+.loader {
+  width:15px;
+  height:15px;
+  border-radius: 50%;
+  background: teal;
+}
+.container {
+  width:100%;
+  height:60vh;
+}
+.info_wrap {
+  float:right;
+  width:30vw;
+  height: 45vh;
+}
+.page-title {
+
+}
+.info_image {
+  width:170px;
+  height:170px;
+  margin-top: 7vh;
+  margin-left: 5vw;
+  border-radius: 50%;
+}
+
+.info_title  {
+  margin-left: 8vw;
+}
+.info-content{
+  margin-left: 9vw;
+}
+.phrase-wrap {
+  width:100%;
+  height: 40vh;
+  padding-top: 2vh;
+  background-color: cadetblue;
+}
+.phrase {
+  color: white;
+  font-size: 50px;
+  margin-left: 20%;
+  font-family: 'Caveat', cursive;
+}
+.community-wrap {
+  margin-top: 10vh;
+  margin-left: 37vw;
+  margin-bottom: 5vh;
+}
+.post-wrap{
+  width: 75%;
+  height: 20vh;
+  margin-left: 24vw;
+  margin-top:4vh;
+}
+
+.post-image {
+  width: 9vw;
+  height: 9vw;
+  border-radius: 50%;
+  float:left;
+}
+.post-data{
+  float: left;
+  margin-top: 1.2vw;
+  margin-left: 2vw;
+}
+.post-date {
+  font-size: 1vw;
+}
+.post-name {
+  font-size: 1.1vw;
+  margin-left: 1vw;
+}
+
+.post-content-title {
+
+}
+
+.post-content {
+  float: left;
+  margin-top: 1.2vw;
+  margin-left: 3vw;
+}
+.community-btn-wrap {
+  margin-left: 40%;
+
+}
+
+.btn-style {
+  width: 7vw;
+  height: 2vw;
+  border-radius: 7%;
+  background-color: none;
+  margin-right: 4vw;
+  border: none;
+}
+/* p {
+  font-family:'Jeju Myeongjo';
+  font-size: 1.5vw;
+} */
+
+.menu-list-wrap {
+  margin-right: 9vw;
+  font-family: 'HangeulNuri-Bold';
+  font-size: 18;
+  padding-top: 2vh;
+}
+.menu-list-item {
+  float: right;
+    margin-Right: 3vw;
 }
