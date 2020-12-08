@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import React from 'react'
+import React from 'react';
+import blog from '../images/blog.png';
+import github from '../images/github.png';
 
 const loaderVariants = {
   animationOne: {
@@ -29,10 +31,18 @@ function Header() {
         </motion.div>
       </div>
       <div style={styles.menu_list_wrap}>
-        <p style={styles.menu_list_item}>About</p>
-        <p style={styles.menu_list_item}>Community</p>
+        <a href="https://github.com/hayoung2" >
+          <img className="header-logo" src={blog} />
+        </a>
+        <a href="https://github.com/hayoung2" >
+          <img className="header-logo" src={github} />
+        </a>
+        <p className="menu-list-item">Community</p>
+        <p className="menu-list-item">ForeCast</p>
+        <p className="menu-list-item">About</p>
+
       </div>
-    </div>
+    </div >
   )
 }
 const styles = {
@@ -42,14 +52,10 @@ const styles = {
     backgroundColor: 'white'
   },
   menu_list_wrap: {
-    marginRight: '10vw',
+    marginRight: '9vw',
     fontFamily: 'HangeulNuri-Bold',
     fontSize: 18,
     paddingTop: '2vh'
-  },
-  menu_list_item: {
-    float: 'right',
-    marginRight: '3vw'
   },
   loader_wrap: {
     paddingTop: '5vh',
