@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Particles from 'react-particles-js'
-import Main from './Main';
 
 
 
@@ -24,11 +23,11 @@ function Start() {
         }
       }} />
 
-      <motion.div style={styles.motion}
+      <motion.div className="bottom-fade-in"
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1 }}>
-        <p style={styles.title}>오늘도 상사 레전드</p>
-        <span style={styles.contents_1}>끔찍한 일주일을 보낸 당신,<br /></span>
-        <span style={styles.contents_2}>익명을 통해 시원하게 당신의 상사를 <span style={{ textDecoration: 'line-through' }}>욕해보세요.</span></span>
+        <p style={styles.title}>개인 프로젝트</p>
+        <span style={styles.contents_1}>VSCode, React, AWS RDS <br /></span>
+        <span style={styles.contents_2}>React 스터디 4주차 토이 프로젝트 만들기</span>
         <br />
         <Link to='/home'>
           <button style={styles.buttonStyle} onMouseOver={((event) => {
@@ -51,30 +50,27 @@ const styles = {
     position: 'absolute',
     width: '100%',
     height: '100%',
-  },
-  motion: {
-    position: 'absolute',
-    bottom: '40vh',
-    left: '32vw'
+    backgroundColor: 'black'
   },
   title: {
     color: "white",
     fontFamily: 'HangeulNuri-Bold',
-    fontSize: 60,
-    marginLeft: '6vw'
+    fontSize: "2.3vw",
+    marginLeft: '10vw'
   },
   contents_1: {
     color: "white",
     fontFamily: 'Jeju Myeongjo',
-    fontSize: 30,
+    fontSize: "1.3vw",
     letterSpacing: 3,
     lineHeight: 2,
-    marginLeft: '8vw'
+    marginLeft: '9vw'
   },
   contents_2: {
     color: "white",
     fontFamily: 'Jeju Myeongjo',
-    fontSize: 30,
+    fontSize: "1.4vw",
+    marginLeft: '3vw',
     letterSpacing: 3,
     lineHeight: 2,
   }
@@ -82,9 +78,9 @@ const styles = {
   buttonStyle: {
     background: 'none',
     width: '7vw',
-    height: '5vh',
+    height: '4.3vh',
     marginLeft: '13vw',
-    fontSize: 21,
+    fontSize: "1vw",
     fontFamily: 'Jeju Myeongjo',
     marginTop: '4vh',
     borderRadius: 10,

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Route, Router } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import img from '../japan.jpg';
 
 class Community extends React.Component {
 
@@ -27,8 +26,7 @@ class Community extends React.Component {
       <div>
         <Header />
         <div className="community-wrap">
-          <h1 className="page-title">Community</h1>
-          <p>오늘 하루도 열심히 버틴 직장인들을 위한 작은 화풀이 공간</p>
+          <h1 className="community-title">Community</h1>
         </div>
         <hr />
         {
