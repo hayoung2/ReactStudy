@@ -35,6 +35,15 @@ app.get('/api/userPosting', (req, res) => {
   )
 });
 
+app.get('/api/mainPosting', (req, res) => {
+  connection.query(
+    "SELECT * FROM post LIMIT 3", (
+      err, rows, fields) => {
+    res.send(rows);
+  }
+  )
+});
+
 
 const getDataHtml = async () => {
   try {
