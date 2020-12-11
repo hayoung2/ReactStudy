@@ -12,7 +12,7 @@ class Post extends React.Component {
       title: '',
       name: '',
       content: '',
-      date: '',
+      time: '',
       image: null,
       fileName: ''
     }
@@ -22,7 +22,7 @@ class Post extends React.Component {
     const formData = new FormData();
     formData.append('image', this.state.image);
     formData.append('name', this.state.name);
-    formData.append('time', this.state.date ? this.state.date : '2020.12.09');
+    formData.append('time', this.state.time);
     formData.append('title', this.state.title);
     formData.append('content', this.state.content);
 
@@ -45,7 +45,7 @@ class Post extends React.Component {
       fileName: '',
       title: '',
       content: '',
-      date: ''
+      time: ''
     });
   }
   handleValueChange = (e) => {
@@ -64,16 +64,17 @@ class Post extends React.Component {
     return (
       <>
         <Header />
-        <h2 className="page-title">작성하기</h2>
+        <h2 className="page-title">글 작성하기</h2>
 
         <form onSubmit={this.handleFormSubmit}>
+          날짜 : <input type="text" name="time" value={this.state.time} onChange={this.handleValueChange} placeholder="ex.14 Dec,2020" /> <br />
           제목 : <input type="text" name="title" value={this.state.title} onChange={this.handleValueChange} /><br />
-          이름:<input type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
-          파일 :<input type="file" value={this.state.fileName}
-            file={this.state.image} onChange={this.handleFileChange} /><br />
-          내용:<br />
-          <textarea name="content" value={this.state.content} onChange={this.handleValueChange}  ></textarea>
-          <button type="submit">글쓰기</button>
+          이름 : <input type="text" name="name" value={this.state.name} onChange={this.handleValueChange} /><br />
+          파일 : <input type="file" value={this.state.fileName}
+            file={this.state.image} onChange={this.handleFileChange} /><br /><br />
+          내용: <br />
+          <textarea name="content" value={this.state.content} onChange={this.handleValueChange}  ></textarea><br />
+          <button type="submit" className="submit-btn">글쓰기</button>
         </form>
         <Footer />
       </>

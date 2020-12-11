@@ -34,8 +34,9 @@ const Main = (props) => {
         </video>
 
       </div>
-      <Crawling />
-
+      <a id="crawling" name="crawling">
+        <Crawling />
+      </a>
       <div className="phrase-wrap">
         <p className="phrase">
           Our greatest weakness lies in Giving up. <br />
