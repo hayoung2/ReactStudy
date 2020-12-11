@@ -25,16 +25,28 @@ code {
 }
 
 button:focus { outline:none; }
-
+.link-to-style {
+  text-decoration: none;
+  color: black;
+}
 .header-logo {
   width:35px;
   float: right;
   margin-right: 1vw;
   margin-top: 0.5vw;
   height: 35px;
- 
-}
 
+}
+ 
+.header-logo:hover {
+  animation: rotate_image 2s linear infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes rotate_image{
+100% {
+    transform: rotate(360deg);
+  }
+}
 
 .loader {
   width:15px;
@@ -43,17 +55,15 @@ button:focus { outline:none; }
   background: rgb(212, 53, 42);
 }
 .container {
-  width:100%;
-  height:60vh;
+  width:90%;
+  height:70vh;
 }
 .info_wrap {
   float:right;
-  width:30vw;
+  width:25vw;
   height: 45vh;
 }
-.page-title {
 
-}
 .info_image {
   width:170px;
   height:170px;
@@ -71,14 +81,14 @@ button:focus { outline:none; }
 
 .phrase-wrap {
   width:100%;
-  height: 40vh;
+  height: 20vw;
   padding-top: 2vh;
-  background-color: cadetblue;
+  background-color: black;
 }
 .phrase {
   color: white;
-  font-size: 50px;
-  margin-left: 20%;
+  font-size: 3vw;
+  margin-left: 16%;
   font-family: 'Caveat', cursive;
 }
 .community-wrap {
@@ -172,7 +182,15 @@ button:focus { outline:none; }
   border-bottom: 2px solid #39d9c8;
   transition:all 0.7s ease;
 }
-
+.menu-list-item:visited {
+  color:white;  
+}
+.menu-list-item:active {
+  color:white;  
+}
+.menu-list-item:link {
+  color:white;
+}
 .test-img {
   width:60%;
   height:42vw;
@@ -181,7 +199,10 @@ button:focus { outline:none; }
 }
 
 .banner-wrap{
-  width:96%;
+  width:95%;
   margin-left:2.5vw;
   height:100%;
+}
+.page-title {
+  margin-left: 12%;
 }

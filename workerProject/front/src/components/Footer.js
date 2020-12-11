@@ -3,8 +3,10 @@ import React from 'react'
 const styles = {
   menu: {
     width: '100%',
-    height: '20vh',
-    backgroundColor: 'white'
+    height: '10vh',
+    marginTop: '3vh',
+    backgroundColor: 'black',
+    color: 'white'
   },
   menu__list: {
     float: 'right',
@@ -15,10 +17,12 @@ const styles = {
 function Footer() {
   return (
     <div style={styles.menu}>
-
-      <div style={styles.menu__list}>
-        <p>About</p>
-        <p>Community</p>
+      <div className="menu-list-wrap">
+        <p className="menu-list-item">About</p>
+        <p className="menu-list-item">Community</p>
+      </div>
+      <div className="info-wrap">
+        <p className="info-list-1">Created by Hayoung2</p>
       </div>
     </div>
   )
