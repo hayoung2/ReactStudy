@@ -1,4 +1,4 @@
-const fs = require('fs');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -20,8 +20,8 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
-// const multer = require('multer');
-// const upload = multer({dest: './upload'})
+const multer = require('multer');
+const upload = multer({ dest: './upload' })
 
 app.get('/api/customers', (req, res) => {
   connection.query(
@@ -32,7 +32,7 @@ app.get('/api/customers', (req, res) => {
   )
 });
 
-// app.use('/image', express.static('./upload'));
+app.use('/image', express.static('./upload'));
 
 // app.post('/api/customers', upload.single('image'), (req, res) => {
 //     let sql = 'INSERT INTO CUSTOMER VALUES (null, ?, ?, ?, ?, ?, now(), 0)';
